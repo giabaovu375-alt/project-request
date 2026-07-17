@@ -325,10 +325,10 @@
 <body>
 <div class="wrap">
 
-  <div class="eyebrow">Code dạo vì đam mê - nhận làm project nhỏ free</div>
+  <div class="eyebrow">CODE DẠO FREE</div>
   <h1>Điền yêu cầu <span>dự án</span> của bạn</h1>
-  <p class="sub">Mô tả càng rõ, mình càng làm nhanh và đúng ý.</p>
-  <div class="disclaimer"> Gửi form không đồng nghĩa mình nhận job 100% — mình sẽ xem qua rồi phản hồi lại nhé.</div>
+  <p class="sub">Mô tả càng rõ, mình càng làm nhanh và đúng ý</p>
+  <div class="disclaimer">🐧 Gửi form không đồng nghĩa mình nhận job 100% — mình sẽ xem qua rồi phản hồi lại nhé.</div>
 
   <form id="requestForm">
 
@@ -452,6 +452,20 @@
         <label for="notes">Ghi chú thêm <span class="opt">(deadline, ngân sách nếu có, v.v.)</span></label>
         <textarea id="notes" name="notes" placeholder="Có gì đặc biệt cứ ghi ở đây"></textarea>
       </div>
+
+      <div class="field">
+        <label>Sau khi làm xong, đồng ý cho chụp ảnh/khoe project này không? <span class="opt">(để show portfolio, không bắt buộc)</span></label>
+        <div class="radio-group">
+          <label class="radio-pill">
+            <input type="radio" name="consentShowcase" value="Đồng ý" checked>
+            <span>Đồng ý</span>
+          </label>
+          <label class="radio-pill">
+            <input type="radio" name="consentShowcase" value="Không đồng ý">
+            <span>Không đồng ý</span>
+          </label>
+        </div>
+      </div>
     </div>
 
     <button type="submit" id="submitBtn">Gửi yêu cầu →</button>
@@ -533,6 +547,7 @@
     const stack = document.getElementById('stack').value.trim();
     const style = document.getElementById('style').value.trim();
     const notes = document.getElementById('notes').value.trim();
+    const consentShowcase = document.querySelector('input[name="consentShowcase"]:checked').value;
     const logoNote = logoFile.files[0] ? `Có file đính kèm: ${logoFile.files[0].name} (nhớ đính kèm thủ công trong email)` : 'Không có file';
 
     let backendLine = needsBackend;
@@ -562,7 +577,9 @@ Giao diện mong muốn:
 ${style || '(không ghi)'}
 
 Ghi chú:
-${notes || '(không có)'}`;
+${notes || '(không có)'}
+
+Cho phép khoe/chụp ảnh project sau khi xong: ${consentShowcase}`;
 
     const mailto = `mailto:giabaovu375@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.location.href = mailto;
@@ -582,5 +599,5 @@ ${notes || '(không có)'}`;
   });
 </script>
 </body>
-      </html>
-
+    </html>
+    
